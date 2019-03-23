@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Windows username should be the first command line argument
+
+# Add local link for C drive
+ln -sf /mnt/c/Users/$1/Documents/Projects ~/local_files

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check if anaconda is installed
+CONDA_INSTALL=$(which conda)
+if [ -z "$CONDA_INSTALL" ]; then
+   echo "Downloading Anaconda3 (5.2.0)..."
+   wget https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh
+   echo "Installing in /home/$USER/anaconda3/..."
+   bash Anaconda3-5.2.0-Linux-x86_64.sh
+   source /home/$USER/.bashrc
+fi
+
+# Check that anaconda packages are installed and up to date
+declare -a python_pkgs=("numpy" "scipy" "pandas" "scikit-learn"
+			"cudatoolkit" "numba" "virtualenv")
+conda list > temp_conda
+for pkg_name in "${python_pkgs[@]}"; do
+    PKG_OK=$(grep $pkg_name temp_conda)
+    echo Checking for $pkg_name : $PKG_OK
+    if [ "" == "$PKG_OK" ]; then
+       echo "No $pkg_name. Setting up $pkg_name."
+       conda install $pkg_name
+    fi
+done
+
+# Clean-up
+rm temp_conda
