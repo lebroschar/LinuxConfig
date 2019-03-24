@@ -2,7 +2,8 @@
 XTerm*metaSendsEscape: true
 
 ! Increase font size
-xterm*font: terminus-12    !*-fixed-*-*-*-18-*
+!xterm*font: terminus-12    !*-fixed-*-*-*-18-*
+XTerm.VT100.faceName: mono:size=16
 
 ! BORROWED FROM https://unix4lyfe.org/xterm/
 
