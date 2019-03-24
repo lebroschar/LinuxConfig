@@ -4,3 +4,4 @@
 ln -sf /home/$USER/config/.bashrc /home/$USER/.bashrc
 ln -sf /home/$USER/config/.bash_aliases /home/$USER/.bash_aliases
 ln -sf /home/$USER/config/.emacs /home/$USER/.emacs
+ln -sf /home/$USER/config/.Xresources /home/$USER/.Xresources

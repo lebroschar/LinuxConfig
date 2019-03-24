@@ -17,7 +17,7 @@ sudo $INSTALL_APP upgrade
 
 # Make sure packages are installed
 declare -a pkgs=("emacs" "mesa-utils" "git" "curl" "xauth" "x11-apps"
-		 "build-essential" "xterm")
+		 "build-essential" "xterm" "x11-xserver-utils")
 for pkg_name in "${pkgs[@]}"; do
     PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $pkg_name | grep "install ok installed")
     echo Checking for $pkg_name: $PKG_OK
